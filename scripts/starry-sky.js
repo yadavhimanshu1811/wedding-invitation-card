@@ -88,27 +88,53 @@ class StarrySky {
   animate() {
     this.ctx.clearRect(0, 0, this.width, this.height);
 
-    // Deep cosmic background gradient
-    const bgGradient = this.ctx.createRadialGradient(
-      this.width / 2, this.height * 0.4, 20,
-      this.width / 2, this.height / 2, Math.max(this.width, this.height)
-    );
-    bgGradient.addColorStop(0, '#0a0d18');
-    bgGradient.addColorStop(0.5, '#05070e');
-    bgGradient.addColorStop(1, '#020306');
-    this.ctx.fillStyle = bgGradient;
-    this.ctx.fillRect(0, 0, this.width, this.height);
+    const isLight = document.body && document.body.classList.contains('light-mode');
 
-    // Subtle blue ethereal vignette borders
-    const vignette = this.ctx.createRadialGradient(
-      this.width / 2, this.height / 2, Math.min(this.width, this.height) * 0.45,
-      this.width / 2, this.height / 2, Math.max(this.width, this.height) * 0.75
-    );
-    vignette.addColorStop(0, 'rgba(0, 0, 0, 0)');
-    vignette.addColorStop(0.85, 'rgba(5, 12, 32, 0.4)');
-    vignette.addColorStop(1, 'rgba(14, 28, 64, 0.6)');
-    this.ctx.fillStyle = vignette;
-    this.ctx.fillRect(0, 0, this.width, this.height);
+    if (isLight) {
+      // Warm Palace Daytime Sunrise / Champagne Background
+      const bgGradient = this.ctx.createRadialGradient(
+        this.width / 2, this.height * 0.35, 20,
+        this.width / 2, this.height / 2, Math.max(this.width, this.height)
+      );
+      bgGradient.addColorStop(0, '#fffefb');
+      bgGradient.addColorStop(0.5, '#faf5ea');
+      bgGradient.addColorStop(1, '#f1e7d4');
+      this.ctx.fillStyle = bgGradient;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+
+      // Warm sunlit gold vignette
+      const vignette = this.ctx.createRadialGradient(
+        this.width / 2, this.height / 2, Math.min(this.width, this.height) * 0.45,
+        this.width / 2, this.height / 2, Math.max(this.width, this.height) * 0.75
+      );
+      vignette.addColorStop(0, 'rgba(255, 255, 255, 0)');
+      vignette.addColorStop(0.85, 'rgba(235, 215, 185, 0.35)');
+      vignette.addColorStop(1, 'rgba(225, 200, 160, 0.5)');
+      this.ctx.fillStyle = vignette;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+    } else {
+      // Deep cosmic background gradient
+      const bgGradient = this.ctx.createRadialGradient(
+        this.width / 2, this.height * 0.4, 20,
+        this.width / 2, this.height / 2, Math.max(this.width, this.height)
+      );
+      bgGradient.addColorStop(0, '#0a0d18');
+      bgGradient.addColorStop(0.5, '#05070e');
+      bgGradient.addColorStop(1, '#020306');
+      this.ctx.fillStyle = bgGradient;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+
+      // Subtle blue ethereal vignette borders
+      const vignette = this.ctx.createRadialGradient(
+        this.width / 2, this.height / 2, Math.min(this.width, this.height) * 0.45,
+        this.width / 2, this.height / 2, Math.max(this.width, this.height) * 0.75
+      );
+      vignette.addColorStop(0, 'rgba(0, 0, 0, 0)');
+      vignette.addColorStop(0.85, 'rgba(5, 12, 32, 0.4)');
+      vignette.addColorStop(1, 'rgba(14, 28, 64, 0.6)');
+      this.ctx.fillStyle = vignette;
+      this.ctx.fillRect(0, 0, this.width, this.height);
+    }
 
     const now = Date.now() * 0.001;
 
@@ -116,8 +142,11 @@ class StarrySky {
     for (const star of this.stars) {
       const alpha = Math.max(0.1, Math.min(1, star.baseAlpha + Math.sin(now * 3 + star.twinklePhase) * 0.35));
       
-      this.ctx.fillStyle = star.color;
-      this.ctx.globalAlpha = alpha;
+      const starColor = isLight ? (star.size > 1.0 ? '#b8860b' : '#c9982a') : star.color;
+      const starAlpha = isLight ? alpha * 0.7 : alpha;
+
+      this.ctx.fillStyle = starColor;
+      this.ctx.globalAlpha = starAlpha;
 
       // Draw star body
       this.ctx.beginPath();
@@ -128,17 +157,17 @@ class StarrySky {
       if (star.size > 1.0) {
         this.ctx.beginPath();
         this.ctx.arc(star.x, star.y, star.size * 2.5, 0, Math.PI * 2);
-        this.ctx.fillStyle = star.color;
-        this.ctx.globalAlpha = alpha * 0.2;
+        this.ctx.fillStyle = starColor;
+        this.ctx.globalAlpha = starAlpha * (isLight ? 0.35 : 0.2);
         this.ctx.fill();
       }
 
       // Draw 4-point cross diffraction spikes for hero stars
       if (star.hasCrossSpikes && alpha > 0.4) {
         const spikeLen = star.spikeLength * (0.8 + 0.3 * Math.sin(now * 4 + star.twinklePhase));
-        this.ctx.strokeStyle = star.color;
-        this.ctx.lineWidth = 0.75;
-        this.ctx.globalAlpha = alpha * 0.6;
+        this.ctx.strokeStyle = starColor;
+        this.ctx.lineWidth = isLight ? 0.9 : 0.75;
+        this.ctx.globalAlpha = starAlpha * 0.6;
 
         this.ctx.beginPath();
         // Horizontal spike
@@ -170,22 +199,28 @@ class StarrySky {
       const tailY = s.y - (s.dy / Math.hypot(s.dx, s.dy)) * s.length;
 
       const grad = this.ctx.createLinearGradient(s.x, s.y, tailX, tailY);
-      grad.addColorStop(0, `rgba(255, 255, 255, ${s.alpha})`);
-      grad.addColorStop(0.3, `rgba(224, 242, 254, ${s.alpha * 0.7})`);
-      grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      if (isLight) {
+        grad.addColorStop(0, `rgba(184, 134, 11, ${s.alpha * 0.85})`);
+        grad.addColorStop(0.3, `rgba(217, 119, 6, ${s.alpha * 0.5})`);
+        grad.addColorStop(1, 'rgba(184, 134, 11, 0)');
+      } else {
+        grad.addColorStop(0, `rgba(255, 255, 255, ${s.alpha})`);
+        grad.addColorStop(0.3, `rgba(224, 242, 254, ${s.alpha * 0.7})`);
+        grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+      }
 
       this.ctx.strokeStyle = grad;
-      this.ctx.lineWidth = 1.6;
+      this.ctx.lineWidth = isLight ? 2.0 : 1.6;
       this.ctx.beginPath();
       this.ctx.moveTo(s.x, s.y);
       this.ctx.lineTo(tailX, tailY);
       this.ctx.stroke();
 
       // Sparkle at shooting star head
-      this.ctx.fillStyle = '#ffffff';
+      this.ctx.fillStyle = isLight ? '#b8860b' : '#ffffff';
       this.ctx.globalAlpha = s.alpha;
       this.ctx.beginPath();
-      this.ctx.arc(s.x, s.y, 1.8, 0, Math.PI * 2);
+      this.ctx.arc(s.x, s.y, isLight ? 2.2 : 1.8, 0, Math.PI * 2);
       this.ctx.fill();
     }
 

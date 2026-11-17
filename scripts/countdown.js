@@ -1,5 +1,5 @@
 /**
- * LIVE WEDDING COUNTDOWN TIMER & CALENDAR GENERATOR
+ * LIVE WEDDING COUNTDOWN TIMER
  */
 
 class WeddingCountdown {
@@ -59,42 +59,6 @@ class WeddingCountdown {
     setTimeout(() => {
       el.classList.remove('updating');
     }, 200);
-  }
-
-  static generateGoogleCalendarUrl(title, details, location, startDate, endDate) {
-    const formatTime = (d) => new Date(d).toISOString().replace(/-|:|\.\d\d\d/g, "");
-    const startStr = formatTime(startDate);
-    const endStr = endDate ? formatTime(endDate) : formatTime(new Date(new Date(startDate).getTime() + 4 * 3600000));
-    return `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&dates=${startStr}/${endStr}`;
-  }
-
-  static downloadICS(title, description, location, startDate) {
-    const formatTime = (d) => new Date(d).toISOString().replace(/-|:|\.\d\d\d/g, "");
-    const start = formatTime(startDate);
-    const end = formatTime(new Date(new Date(startDate).getTime() + 5 * 3600000));
-
-    const icsContent = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Wedding Invitation//EN",
-      "BEGIN:VEVENT",
-      `SUMMARY:${title}`,
-      `DESCRIPTION:${description}`,
-      `LOCATION:${location}`,
-      `DTSTART:${start}`,
-      `DTEND:${end}`,
-      "STATUS:CONFIRMED",
-      "END:VEVENT",
-      "END:VCALENDAR"
-    ].join("\r\n");
-
-    const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
-    const link = document.createElement("a");
-    link.href = window.URL.createObjectURL(blob);
-    link.setAttribute("download", `${title.replace(/\s+/g, '_')}.ics`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
   }
 }
 

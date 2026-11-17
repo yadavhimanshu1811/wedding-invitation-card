@@ -14,30 +14,23 @@ A luxury interactive wedding invitation web application inspired by royal Indian
    - Floating audio widget with animated dancing equalizer bars.
    - Integrated soothing instrumental flute raga playback via Web Audio API with local MP3 audio file support.
 
-3. **Sacred Ganesh Motif & Royal Monogram**:
-   - Ornate SVG gold Ganesh motif (`॥ श्री गणेशाय नमः ॥`).
-   - Customizable royal couple monogram crest with botanical laurels and star crest.
+3. **Sacred Ganesh Motif**:
+   - Ornate SVG gold Ganesh motif (`॥ श्री गणेशाय नमः ॥`) with auspicious blessing chant.
 
-4. **Interactive Pull-Out "Save The Date" Sleeve**:
-   - Tactile envelope pocket with click and swipe gestures revealing the wedding date and "Save to Calendar" button.
-
-5. **Ceremonies & Itinerary Timeline**:
+4. **Ceremonies & Itinerary Timeline**:
    - Detailed schedule for Mehendi, Sangeet Night, Haldi & Phoolon Ki Holi, Baraat & Wedding Ceremony (Pheras), and Reception.
-   - Color badge dress codes and one-click Google Calendar & iCal integration.
+   - Color badge dress codes and event details.
 
-6. **3D Coverflow "Before Forever" Photo Gallery**:
+5. **3D Coverflow "Before Forever" Photo Gallery**:
    - Smooth 3D perspective slider with glowing gold aura around the active photo.
    - Full-screen lightbox modal on click.
    - Touch swipe on mobile & desktop drag.
 
-7. **The Venue Showcase**:
+6. **The Venue Showcase**:
    - Royal palace venue photo, address, travel notes, and direct Google Maps navigation button.
 
-8. **Live Countdown Timer**:
+7. **Live Countdown Timer**:
    - Real-time Days, Hours, Minutes, and Seconds countdown to the auspicious ceremony.
-
-9. **Blessings & Wishes Wall**:
-   - Beautiful quotes and heartwarming greetings from close family and friends.
 
 ---
 

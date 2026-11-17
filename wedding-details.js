@@ -46,11 +46,10 @@ export const WEDDING_DETAILS = {
   // --------------------------------------------------------------------------
   venue: {
     name: "Hotel Tirupatu",             // Name of hotel / resort / banquet
-    subheading: "Lakeside Royal Palace & Gardens",        // Brief subtitle
-    city: "Udaipur, Rajasthan",                           // City & State
-    fullAddress: "Hotel Tirupatu, Lake Pichola Road, Udaipur, Rajasthan 313001",
-    googleMapsUrl: "https://maps.google.com/?q=Udaipur+Rajasthan", // Google Maps link for directions button
-    directionsNote: "Valet parking available at Main Royal Porch. 35 mins from Maharana Pratap Airport (UDR).",
+    subheading: "",        // Brief subtitle
+    city: "Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan",                           // City & State
+    fullAddress: "Hotel Tirupatu, Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan 303108",
+    googleMapsUrl: "https://maps.app.goo.gl/NiPcZmxdfsEcno5j9", // Google Maps link for directions button
     image: "assets/images/venue.jpg"                      // Place your venue picture in public/assets/images/
   },
 
@@ -60,74 +59,67 @@ export const WEDDING_DETAILS = {
   // --------------------------------------------------------------------------
   events: [
     {
-      id: "mehendi",
+      id: "chaak",
       number: "01",
-      name: "Mehendi & High Tea",
-      day: "FRIDAY",
-      date: "27 NOV 2026",
-      time: "2:30 PM Onwards",
-      venue: "Gulmohar Courtyard",
-      description: "A breezy afternoon of fragrant henna, folk beats, festive chai and sweet laughter.",
-      dressCode: "Vibrant Greens, Pinks & Florals",
-      colorBadge: "#10b981", // Color dot for dress code badge
-      calendarTitle: "Mehendi Ceremony",
-      calendarDetails: "Join us for Mehendi & High Tea."
+      name: "Chaak",
+      day: "WEDNESDAY",
+      date: "2 DEC 2026",
+      time: "3:15 PM Onwards",
+      venue: "At Residence, Agarwal family",
+    },
+    {
+      id: "bhaat",
+      number: "02",
+      name: "Bhaat",
+      day: "THURSDAY",
+      date: "3 DEC 2026",
+      time: "12:15 PM Onwards",
+      venue: "Hotel Tirupati (Back garden)",
+    },
+    {
+      id: "lagan-teeka",
+      number: "03",
+      name: "Lagan Teeka",
+      day: "THURSDAY",
+      date: "3 DEC 2026",
+      time: "3:15 PM Onwards",
+      venue: "Hotel Tirupati (Front garden)",
     },
     {
       id: "sangeet",
-      number: "02",
-      name: "Sangeet & Cocktail Night",
-      day: "FRIDAY",
-      date: "27 NOV 2026",
-      time: "7:30 PM Onwards",
-      venue: "Crystal Grand Ballroom",
-      description: "An electrifying evening of Bollywood performances, signature cocktails, and non-stop dancing.",
-      dressCode: "Indo-Western Glitz & Glamour",
-      colorBadge: "#8b5cf6",
-      calendarTitle: "Sangeet Night",
-      calendarDetails: "Join us for Sangeet & Cocktails."
+      number: "04",
+      name: "Ladies sangeet",
+      day: "THURSDAY",
+      date: "3 DEC 2026",
+      time: "6:15 PM Onwards",
+      venue: "Hotel Tirupati (Front garden)",
     },
     {
       id: "haldi",
-      number: "03",
-      name: "Haldi & Phoolon Ki Holi",
-      day: "SATURDAY",
-      date: "28 NOV 2026",
+      number: "05",
+      name: "Haldi ceremony",
+      day: "FRIDAY",
+      date: "4 DEC 2026",
       time: "10:30 AM Onwards",
-      venue: "Lotus Poolside Lawn",
-      description: "A golden morning drenched in fragrant turmeric, floral showers of marigolds and endless smiles.",
-      dressCode: "Shades of Sunshine Yellow & Ochre",
-      colorBadge: "#f59e0b",
-      calendarTitle: "Haldi Ceremony",
-      calendarDetails: "Haldi rituals and flower shower."
+      venue: "Hotel Tirupati (Back garden)",
+    },
+    {
+      id: "ghudchadi",
+      number: "06",
+      name: "Ghudchadi",
+      day: "FRIDAY",
+      date: "4 DEC 2026",
+      time: "4:00 PM Onwards",
+      venue: "Hotel Tirupati (Back garden)",
     },
     {
       id: "wedding",
-      number: "04",
-      name: "Baraat & Wedding Ceremony",
-      day: "SATURDAY",
-      date: "28 NOV 2026",
-      time: "6:30 PM (Baraat) · 8:00 PM (Pheras)",
-      venue: "Royal Lakefront Mandap",
-      description: "The sacred vows and seven steps around the holy fire under a canopy of starlight.",
-      dressCode: "Royal Traditional Indian Finery",
-      colorBadge: "#e11d48",
-      calendarTitle: "Wedding Ceremony (Pheras)",
-      calendarDetails: "Baraat welcome at 6:30 PM, Sacred Pheras at 8:00 PM."
-    },
-    {
-      id: "reception",
-      number: "05",
-      name: "Dinner & Reception",
-      day: "SATURDAY",
-      date: "28 NOV 2026",
-      time: "9:30 PM Onwards",
-      venue: "The Palace Royal Gardens",
-      description: "A lavish feast under fairy lights to toast the newlyweds, celebrate new beginnings, and dance.",
-      dressCode: "Regal Elegance & Black Tie",
-      colorBadge: "#d97706",
-      calendarTitle: "Wedding Reception",
-      calendarDetails: "Celebratory feast & reception."
+      number: "07",
+      name: "Wedding ceremony",
+      day: "FRIDAY",
+      date: "4 DEC 2026",
+      time: "7:30 PM Onwards",
+      venue: "Hotel Tirupati (Back garden)",
     }
   ],
 
@@ -138,33 +130,21 @@ export const WEDDING_DETAILS = {
   gallery: [
     {
       image: "assets/images/couple-1.jpg",
-      caption: "Two souls, one sacred journey",
-      subtitle: "Royal Palace Courtyard"
     },
     {
       image: "assets/images/couple-2.jpg",
-      caption: "Walking hand in hand toward forever",
-      subtitle: "The Heritage Corridors"
     },
     {
       image: "assets/images/couple-3.jpg",
-      caption: "Magic under a starlit night",
-      subtitle: "Fairy Light Evenings"
     },
     {
       image: "assets/images/couple-4.jpg",
-      caption: "Laughter, timeless memories & endless love",
-      subtitle: "Sunset Over the Lake"
     },
     {
       image: "assets/images/couple-5.jpg",
-      caption: "Every step with you feels like home",
-      subtitle: "Bougainvillea Garden Walk"
     },
     {
       image: "assets/images/couple-6.jpg",
-      caption: "Quiet conversations & a love for a lifetime",
-      subtitle: "Fairy-Lit Evening Lawn"
     }
   ],
 
@@ -178,27 +158,9 @@ export const WEDDING_DETAILS = {
   },
 
   // --------------------------------------------------------------------------
-  // 7. FAMILY GREETING & BLESSINGS
+  // 7. FAMILY GREETING (FOOTER)
   // --------------------------------------------------------------------------
-  familyCompliments: "With Best Compliments From Sharma & Singhal Families",
-
-  initialWishes: [
-    {
-      name: "The Grewal Family",
-      message: "Wishing both of you a lifetime of joy, love and endless laughter! Can't wait to dance at the Sangeet!",
-      date: "2 days ago"
-    },
-    {
-      name: "Kabir & Ananya",
-      message: "From college sweethearts to the altar! So proud and excited for you two. Love you loads!",
-      date: "3 days ago"
-    },
-    {
-      name: "Dadi & Dadaji",
-      message: "May Ishwar shower His divine blessings upon you both forever. Sada khush raho!",
-      date: "Just now"
-    }
-  ]
+  familyCompliments: "With Best Compliments From Agarwal Family"
 };
 
 // Global window compatibility

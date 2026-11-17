@@ -317,3 +317,40 @@
   }
 }
 
+/* --------------------------------------------------------------------------
+   LIGHT MODE: Gallery & Carousel Overrides
+   -------------------------------------------------------------------------- */
+body.light-mode .control-arrow {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(184, 134, 11, 0.35);
+  color: #241a10;
+  box-shadow: 0 4px 15px rgba(160, 130, 70, 0.15);
+}
+
+body.light-mode .control-arrow:hover {
+  background: var(--gold-warm);
+  color: #ffffff;
+  border-color: var(--gold-warm);
+}
+
+body.light-mode .carousel-dots .dot {
+  background: rgba(184, 134, 11, 0.3);
+}
+
+body.light-mode .carousel-dots .dot.active {
+  background: var(--gold-warm);
+  box-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
+}
+
+body.light-mode .expand-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(184, 134, 11, 0.3);
+  color: #241a10;
+}
+
+body.light-mode .expand-btn:hover {
+  background: var(--gold-warm);
+  color: #ffffff;
+}
+
+

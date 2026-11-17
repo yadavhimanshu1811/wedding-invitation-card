@@ -6,10 +6,9 @@
 import { WEDDING_DETAILS } from '../wedding-details.js';
 import { StarrySky } from './starry-sky.js';
 import { WeddingAudioPlayer } from './audio-player.js';
-import { PullCard } from './pull-card.js';
 import { WeddingCarousel } from './carousel.js';
 import { WeddingCountdown } from './countdown.js';
-import { Guestbook } from './guestbook.js';
+import { ThemeToggle } from './theme-toggle.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   const config = window.WEDDING_DETAILS || WEDDING_DETAILS;
@@ -18,35 +17,29 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // 1. Initialize Starry Sky Background Canvas
+  // 1. Initialize Day & Night Theme Toggle
+  const themeToggle = new ThemeToggle('theme-toggle-btn', 'theme-toggle-text');
+
+  // 2. Initialize Starry Sky Background Canvas
   const starrySky = new StarrySky('stars-canvas');
 
-  // 2. Initialize Audio Player
+  // 3. Initialize Audio Player
   const audioPlayer = new WeddingAudioPlayer(config.music.audioSrc);
 
-  // 3. Hydrate Couple Data & Texts Across Website
+  // 4. Hydrate Couple Data & Texts Across Website
   hydrateContent(config);
 
-  // 4. Setup "Tap to Open Invitation" Ceremony
+  // 5. Setup "Tap to Open Invitation" Ceremony
   setupEnvelopeOpening(audioPlayer);
 
-  // 5. Initialize 3D Carousel Gallery
+  // 6. Initialize 3D Carousel Gallery
   const carousel = new WeddingCarousel('coverflow-container', config.gallery);
-
-  // 6. Initialize Interactive Pull Card
-  const pullCard = new PullCard('pocket-sleeve', 'inner-date-card', 'pull-hint-text');
 
   // 7. Initialize Live Countdown
   const countdown = new WeddingCountdown(config.weddingDate);
 
-  // 8. Initialize Blessings Wall (Guestbook)
-  const guestbook = new Guestbook(config);
-
-  // 9. Setup Scroll Reveal Animations
+  // 8. Setup Scroll Reveal Animations
   setupScrollReveals();
-
-  // 10. Setup Calendar Export Buttons
-  setupCalendarButtons(config);
 });
 
 /**
@@ -66,12 +59,6 @@ function hydrateContent(config) {
   setText('.couple-tagline', config.couple.tagline);
   setText('.wedding-date-formatted', config.formattedDate);
   setText('.wedding-date-short', config.formattedDateShort);
-
-  // Monogram Initials in SVG Crest
-  const monogramEl = document.getElementById('monogram-initials');
-  if (monogramEl) {
-    monogramEl.textContent = config.couple.initials;
-  }
 
   // Marquee Ticker
   const tickerItems = [
@@ -135,8 +122,6 @@ function renderEventsTimeline(config) {
 
       <div class="event-card-content">
         <h3 class="event-title">${evt.name}</h3>
-        <p class="event-desc">${evt.description}</p>
-        
         <div class="event-details-pill-row">
           <span class="event-pill">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -146,17 +131,6 @@ function renderEventsTimeline(config) {
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             ${evt.venue}
           </span>
-          <span class="event-pill dress-code" style="--badge-color: ${evt.colorBadge}">
-            <span class="color-swatch" style="background-color: ${evt.colorBadge}"></span>
-            Dress Code: ${evt.dressCode}
-          </span>
-        </div>
-
-        <div class="event-actions">
-          <button class="cal-action-btn" onclick="addEventToCalendar('${evt.id}')">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-            Add to Calendar
-          </button>
         </div>
       </div>
     </div>
@@ -224,34 +198,4 @@ function setupScrollReveals() {
   }, { threshold: 0.15 });
 
   elements.forEach(el => observer.observe(el));
-}
-
-/**
- * Calendar integration for events
- */
-function setupCalendarButtons(config) {
-  window.addEventToCalendar = (eventId) => {
-    const evt = config.events.find(e => e.id === eventId);
-    if (!evt) return;
-
-    const gcalUrl = WeddingCountdown.generateGoogleCalendarUrl(
-      evt.calendarTitle,
-      evt.calendarDetails,
-      `${evt.venue}, ${config.venue.name}, ${config.venue.city}`,
-      config.weddingDate
-    );
-    window.open(gcalUrl, '_blank');
-  };
-
-  const addAllCalBtn = document.getElementById('add-all-calendar-btn');
-  if (addAllCalBtn) {
-    addAllCalBtn.addEventListener('click', () => {
-      WeddingCountdown.downloadICS(
-        `${config.couple.groom.firstName} & ${config.couple.bride.firstName}'s Wedding`,
-        `Wedding celebration of ${config.couple.groom.fullName} & ${config.couple.bride.fullName}.\nVenue: ${config.venue.fullAddress}`,
-        config.venue.fullAddress,
-        config.weddingDate
-      );
-    });
-  }
 }

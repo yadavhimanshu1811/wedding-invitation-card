@@ -69,3 +69,18 @@
     margin: 0 0.8rem;
   }
 }
+
+/* --------------------------------------------------------------------------
+   LIGHT MODE: Marquee Ticker Ribbon
+   -------------------------------------------------------------------------- */
+body.light-mode .marquee-container {
+  background: rgba(255, 255, 255, 0.94);
+  border-top-color: rgba(184, 134, 11, 0.35);
+  border-bottom-color: rgba(184, 134, 11, 0.35);
+  box-shadow: 0 4px 20px rgba(160, 130, 70, 0.08);
+}
+
+body.light-mode .marquee-content {
+  color: #241a10;
+}
+
