@@ -45,7 +45,7 @@ export const WEDDING_DETAILS = {
   // 3. VENUE & LOCATION DETAILS
   // --------------------------------------------------------------------------
   venue: {
-    name: "Hotel Tirupatu",             // Name of hotel / resort / banquet
+    name: "Hotel Tirupati",             // Name of hotel / resort / banquet
     subheading: "",        // Brief subtitle
     city: "Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan",                           // City & State
     fullAddress: "Hotel Tirupati, Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan 303108",
