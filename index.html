@@ -23,18 +23,15 @@
   <link rel="stylesheet" href="styles/marquee.css" />
   <link rel="stylesheet" href="styles/cards.css" />
   <link rel="stylesheet" href="styles/gallery.css" />
-  <link rel="stylesheet" href="styles/rsvp.css" />
+  <link rel="stylesheet" href="styles/guestbook.css" />
 </head>
-<body>
+<body class="envelope-locked">
 
   <!-- Background Dynamic Starry Sky Canvas -->
   <canvas id="stars-canvas"></canvas>
 
   <!-- Soft Ambient Cosmic Atmosphere Overlay -->
   <div class="ambient-glow-layer"></div>
-
-  <!-- Confetti Celebration Canvas -->
-  <canvas id="confetti-canvas"></canvas>
 
   <!-- ======================================================================
        00: THE ENVELOPE / TAP TO OPEN SCREEN
@@ -282,9 +279,9 @@
         <p class="section-subtitle" style="margin-top: 0.5rem; margin-bottom: 2rem;">
           We cannot wait to celebrate the most special days of our lives with you!
         </p>
-        <button class="btn-luxury-gold open-rsvp-btn">
-          RSVP FOR CELEBRATION
-        </button>
+        <a href="#section-celebrations" class="btn-luxury-gold">
+          VIEW CELEBRATIONS
+        </a>
       </div>
     </section>
 
@@ -299,16 +296,16 @@
       </div>
 
       <h2 class="section-headline scroll-reveal">WARM WISHES</h2>
-      <p class="section-subtitle scroll-reveal">Leave your love and blessings for the bride and groom.</p>
+      <p class="section-subtitle scroll-reveal">Heartfelt blessings and love for the bride and groom.</p>
 
       <div class="wishes-wall-grid scroll-reveal" id="wishes-list">
-        <!-- Rendered by scripts/rsvp-guestbook.js -->
+        <!-- Rendered by scripts/guestbook.js -->
       </div>
     </section>
 
     <!-- Footer -->
     <footer style="text-align: center; padding: 4rem 1rem 7rem; border-top: 1px solid rgba(229, 193, 88, 0.2); margin-top: 3rem;">
-      <p class="ganesh-mantra" style="font-size: 1rem; margin-bottom: 0.8rem;">With Best Compliments From Sharma &amp; Singhal Families</p>
+      <p class="ganesh-mantra footer-family-compliments" style="font-size: 1rem; margin-bottom: 0.8rem;">With Best Compliments From Sharma &amp; Singhal Families</p>
       <p style="font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--text-muted); text-transform: uppercase;">
         Crafted with love for our wedding celebration
       </p>
@@ -332,140 +329,18 @@
   </aside>
 
   <!-- ======================================================================
-       STICKY BOTTOM ACTION BAR (RSVP & Calendar)
+       STICKY BOTTOM ACTION BAR (Venue & Itinerary)
        ====================================================================== -->
   <nav class="sticky-quick-bar" id="sticky-quick-bar">
-    <button class="btn-luxury-gold open-rsvp-btn">
-      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-      RSVP NOW
-    </button>
+    <a href="#section-venue" class="btn-luxury-gold">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      VIEW VENUE
+    </a>
     <a href="#section-celebrations" class="btn-luxury-outline">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
       VIEW ITINERARY
     </a>
   </nav>
-
-  <!-- ======================================================================
-       INTERACTIVE RSVP MODAL
-       ====================================================================== -->
-  <div class="rsvp-modal" id="rsvp-modal" role="dialog" aria-modal="true" aria-labelledby="rsvp-title-id">
-    <div class="rsvp-backdrop"></div>
-    <div class="rsvp-modal-content">
-      <button class="rsvp-close-btn" id="close-rsvp-btn" aria-label="Close RSVP form">✕</button>
-
-      <div class="rsvp-header">
-        <h2 class="rsvp-title" id="rsvp-title-id">RSVP</h2>
-        <p class="rsvp-deadline">Kindly reply by 20 November 2026</p>
-      </div>
-
-      <!-- RSVP Form -->
-      <form id="rsvp-form">
-        <!-- Name -->
-        <div class="form-group">
-          <label class="form-label" for="guestName">Your Full Name *</label>
-          <input type="text" id="guestName" name="guestName" class="form-input" placeholder="e.g. Rahul Verma" required />
-        </div>
-
-        <!-- Phone / WhatsApp -->
-        <div class="form-group">
-          <label class="form-label" for="guestPhone">WhatsApp / Phone Number *</label>
-          <input type="tel" id="guestPhone" name="guestPhone" class="form-input" placeholder="e.g. +91 98765 43210" required />
-        </div>
-
-        <!-- Attendance -->
-        <div class="form-group">
-          <label class="form-label">Will you be attending? *</label>
-          <div class="radio-cards-row">
-            <label class="radio-card">
-              <input type="radio" name="attendance" value="Joyfully Attending" checked />
-              <div class="radio-card-body">
-                <span class="radio-card-title">✨ Joyfully Accept</span>
-              </div>
-            </label>
-            <label class="radio-card">
-              <input type="radio" name="attendance" value="Regretfully Decline" />
-              <div class="radio-card-body">
-                <span class="radio-card-title">Regretfully Decline</span>
-              </div>
-            </label>
-          </div>
-        </div>
-
-        <!-- Number of Guests -->
-        <div class="form-group">
-          <label class="form-label" for="guestCount">Total Number of Guests</label>
-          <select id="guestCount" name="guestCount" class="form-select">
-            <option value="1">1 Person</option>
-            <option value="2" selected>2 Persons</option>
-            <option value="3">3 Persons</option>
-            <option value="4">4 Persons</option>
-            <option value="5+">5+ Persons (Family)</option>
-          </select>
-        </div>
-
-        <!-- Events Attending -->
-        <div class="form-group">
-          <label class="form-label">Which ceremonies will you attend?</label>
-          <div class="checkbox-grid">
-            <label class="checkbox-item">
-              <input type="checkbox" name="events" value="Mehendi" checked />
-              Mehendi (27 Nov)
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="events" value="Sangeet" checked />
-              Sangeet Night (27 Nov)
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="events" value="Haldi" checked />
-              Haldi (28 Nov)
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="events" value="Wedding" checked />
-              Wedding Pheras (28 Nov)
-            </label>
-            <label class="checkbox-item">
-              <input type="checkbox" name="events" value="Reception" checked />
-              Reception Dinner (28 Nov)
-            </label>
-          </div>
-        </div>
-
-        <!-- Dietary Preference -->
-        <div class="form-group">
-          <label class="form-label" for="foodPref">Dietary Preference</label>
-          <select id="foodPref" name="foodPref" class="form-select">
-            <option value="Vegetarian" selected>Vegetarian</option>
-            <option value="Jain (No Root Veg)">Jain (Pure Vegetarian, No Onion/Garlic)</option>
-            <option value="Non-Vegetarian">Non-Vegetarian</option>
-          </select>
-        </div>
-
-        <!-- Warm Wishes -->
-        <div class="form-group">
-          <label class="form-label" for="blessings">A message or blessing for the couple</label>
-          <textarea id="blessings" name="blessings" class="form-textarea" rows="3" placeholder="Write your heartfelt wishes..."></textarea>
-        </div>
-
-        <button type="submit" class="btn-luxury-gold rsvp-submit-btn">
-          SUBMIT RSVP &amp; BLESSINGS
-        </button>
-      </form>
-
-      <!-- Success State -->
-      <div id="rsvp-success-state" class="rsvp-success-state" style="display: none;">
-        <div class="success-icon">✓</div>
-        <h3 class="success-headline">Thank You, <span id="success-guest-name">Friend</span>!</h3>
-        <p class="success-message">
-          Your RSVP and heartfelt blessings have been lovingly recorded. We look forward to celebrating with you under the stars!
-        </p>
-
-        <a id="whatsapp-rsvp-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-luxury-gold" style="display: inline-flex; margin-bottom: 1rem;">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
-          Send Confirmation on WhatsApp
-        </a>
-      </div>
-    </div>
-  </div>
 
   <!-- JavaScript ES Module Application -->
   <script type="module" src="/scripts/main.js"></script>

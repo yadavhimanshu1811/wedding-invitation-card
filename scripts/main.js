@@ -3,19 +3,18 @@
  * Binds config to DOM, coordinates animations, envelope reveal, audio & interactions.
  */
 
-import { WEDDING_CONFIG } from '../wedding-config.js';
+import { WEDDING_DETAILS } from '../wedding-details.js';
 import { StarrySky } from './starry-sky.js';
 import { WeddingAudioPlayer } from './audio-player.js';
 import { PullCard } from './pull-card.js';
 import { WeddingCarousel } from './carousel.js';
 import { WeddingCountdown } from './countdown.js';
-import { RsvpGuestbook } from './rsvp-guestbook.js';
+import { Guestbook } from './guestbook.js';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const config = window.WEDDING_CONFIG || WEDDING_CONFIG;
+  const config = window.WEDDING_DETAILS || WEDDING_DETAILS;
   if (!config) {
-
-    console.error('Wedding config not found!');
+    console.error('Wedding details config not found!');
     return;
   }
 
@@ -40,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // 7. Initialize Live Countdown
   const countdown = new WeddingCountdown(config.weddingDate);
 
-  // 8. Initialize RSVP & Guestbook
-  const rsvp = new RsvpGuestbook(config);
+  // 8. Initialize Blessings Wall (Guestbook)
+  const guestbook = new Guestbook(config);
 
   // 9. Setup Scroll Reveal Animations
   setupScrollReveals();
@@ -100,6 +99,11 @@ function hydrateContent(config) {
   const venueImg = document.getElementById('venue-hero-img');
   if (venueImg && config.venue.image) {
     venueImg.src = config.venue.image;
+  }
+
+  // Footer Compliments
+  if (config.familyCompliments) {
+    setText('.footer-family-compliments', config.familyCompliments);
   }
 
   // Events Timeline Generation
@@ -168,8 +172,22 @@ function setupEnvelopeOpening(audioPlayer) {
   const mainContent = document.getElementById('invitation-main-content');
   const stickyBar = document.getElementById('sticky-quick-bar');
 
+  // Prevent any wheel or touchmove scrolling while the landing cover is active
+  const preventScroll = (e) => {
+    if (openScreen && !openScreen.classList.contains('opened')) {
+      e.preventDefault();
+    }
+  };
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+
   const openEnvelope = () => {
     if (!openScreen || openScreen.classList.contains('opened')) return;
+
+    // Enable page scrolling now that invitation is opened
+    document.body.classList.remove('envelope-locked');
+    window.removeEventListener('wheel', preventScroll);
+    window.removeEventListener('touchmove', preventScroll);
 
     openScreen.classList.add('opened');
     if (mainContent) mainContent.classList.add('visible');

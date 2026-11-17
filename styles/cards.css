@@ -556,3 +556,149 @@
     gap: 0.75rem;
   }
 }
+
+@media (max-width: 600px) {
+  .parchment-card-wrapper {
+    max-width: 100%;
+  }
+  .parchment-card {
+    padding: 2.2rem 1.2rem;
+  }
+  .parchment-inset-border {
+    inset: 8px;
+  }
+  .card-pre-title {
+    font-size: 0.68rem;
+    letter-spacing: 0.25em;
+    margin-bottom: 1rem;
+  }
+  .card-main-title {
+    font-size: clamp(1.5rem, 6vw, 2.2rem);
+    margin-bottom: 1.2rem;
+    letter-spacing: 0.08em;
+  }
+  .card-body-text {
+    font-size: 1.05rem;
+    padding: 0;
+    margin-bottom: 1.5rem;
+  }
+  .card-couple-names {
+    font-size: clamp(1.3rem, 5.5vw, 1.7rem);
+    letter-spacing: 0.14em;
+  }
+  .card-parents-text {
+    font-size: 0.88rem;
+    margin-top: 1rem;
+  }
+
+  /* Pull Card Mobile */
+  .pull-card-container {
+    max-width: 100%;
+    padding-top: 110px;
+    min-height: 400px;
+    margin: 1rem auto;
+  }
+  .pocket-sleeve {
+    padding: 1.8rem 1.2rem;
+  }
+  .pocket-meta-top {
+    margin-bottom: 1.5rem;
+    font-size: 0.68rem;
+  }
+  .pocket-couple-title {
+    font-size: clamp(1.5rem, 5.5vw, 2rem);
+    margin-bottom: 1.8rem;
+  }
+  .pocket-pull-hint {
+    font-size: 0.68rem;
+    letter-spacing: 0.2em;
+  }
+  .inner-date-card {
+    top: 125px;
+    left: 10px;
+    right: 10px;
+    padding: 1.4rem 1rem;
+  }
+  .inner-date-card.pulled {
+    transform: translateY(-95px);
+  }
+  .inner-date-card .revealed-date {
+    font-size: clamp(1.4rem, 5.5vw, 1.8rem);
+  }
+  .inner-date-card .revealed-day {
+    font-size: 1.05rem;
+    margin-bottom: 0.75rem;
+  }
+  .inner-date-card .revealed-venue {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+
+  /* Events Timeline Mobile */
+  .event-row {
+    padding: 1.5rem 1.15rem;
+    gap: 0.85rem;
+  }
+  .event-title {
+    font-size: clamp(1.9rem, 8vw, 2.8rem);
+  }
+  .event-desc {
+    font-size: 0.98rem;
+  }
+  .event-details-pill-row {
+    gap: 0.4rem;
+  }
+  .event-pill {
+    font-size: 0.7rem;
+    padding: 0.3rem 0.65rem;
+  }
+  .cal-action-btn {
+    font-size: 0.68rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  /* Venue Mobile */
+  .venue-card-wrapper {
+    max-width: 100%;
+  }
+  .venue-card {
+    padding: 2.2rem 1.2rem;
+  }
+  .venue-name-display {
+    font-size: clamp(1.6rem, 6.5vw, 2.4rem);
+  }
+  .venue-city-display {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+  }
+  .venue-btn-open {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.72rem;
+  }
+  .venue-photo-container {
+    margin-top: 1.8rem;
+  }
+  .venue-photo-container img {
+    height: 190px;
+  }
+
+  /* Countdown Mobile */
+  .countdown-grid {
+    gap: 0.4rem;
+  }
+  .countdown-num {
+    font-size: clamp(1.85rem, 8.5vw, 3rem);
+  }
+  .countdown-label {
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    margin-top: 0.4rem;
+  }
+
+  /* Monogram Crest Mobile */
+  .monogram-crest-svg {
+    width: 160px;
+    height: 160px;
+  }
+}
+

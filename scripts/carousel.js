@@ -54,6 +54,9 @@ class WeddingCarousel {
         this.prev();
       }
     }, { passive: true });
+
+    // Resize handling
+    window.addEventListener('resize', () => this.updateSlides());
   }
 
   render() {
@@ -118,6 +121,10 @@ class WeddingCarousel {
   updateSlides() {
     const cards = this.container.querySelectorAll('.carousel-card');
     const total = this.slidesData.length;
+    const isMobile = window.innerWidth <= 600;
+    const transOffset = isMobile ? 48 : 65;
+    const scaleFactor = isMobile ? 0.78 : 0.82;
+    const rotAngle = isMobile ? 10 : 15;
 
     cards.forEach((card, idx) => {
       let offset = idx - this.currentIndex;
@@ -131,14 +138,14 @@ class WeddingCarousel {
         card.style.opacity = '1';
       } else if (offset === -1 || (offset === total - 1 && total > 2)) {
         card.classList.add('left-1');
-        card.style.transform = `translateX(-65%) scale(0.82) rotateY(15deg)`;
+        card.style.transform = `translateX(-${transOffset}%) scale(${scaleFactor}) rotateY(${rotAngle}deg)`;
         card.style.zIndex = '5';
-        card.style.opacity = '0.55';
+        card.style.opacity = isMobile ? '0.35' : '0.55';
       } else if (offset === 1 || (offset === -(total - 1) && total > 2)) {
         card.classList.add('right-1');
-        card.style.transform = `translateX(65%) scale(0.82) rotateY(-15deg)`;
+        card.style.transform = `translateX(${transOffset}%) scale(${scaleFactor}) rotateY(-${rotAngle}deg)`;
         card.style.zIndex = '5';
-        card.style.opacity = '0.55';
+        card.style.opacity = isMobile ? '0.35' : '0.55';
       } else {
         card.classList.add('hidden');
         card.style.opacity = '0';

@@ -3,6 +3,14 @@
    Matches the mystical starry opening invitation experience
    ========================================================================== */
 
+/* Disable scrolling while landing envelope is active */
+body.envelope-locked {
+  overflow: hidden !important;
+  height: 100vh !important;
+  touch-action: none !important;
+  overscroll-behavior: none !important;
+}
+
 .envelope-cover {
   position: fixed;
   inset: 0;
@@ -14,6 +22,8 @@
   cursor: pointer;
   background-color: var(--bg-deep-space);
   overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
   transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
               transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
               visibility 1.2s;
@@ -137,3 +147,32 @@
   color: var(--text-muted);
   opacity: 0.75;
 }
+
+@media (max-width: 600px) {
+  .envelope-inner {
+    padding: 1.5rem 1rem;
+    width: 100%;
+  }
+  .envelope-script-title {
+    font-size: clamp(2.8rem, 13vw, 4.2rem);
+    margin-bottom: 0.5rem;
+  }
+  .envelope-sub-tagline {
+    font-size: clamp(1rem, 4.2vw, 1.35rem);
+    margin-bottom: 2.8rem;
+  }
+  .tap-orb-trigger {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1.8rem;
+  }
+  .envelope-cta-text {
+    font-size: clamp(0.95rem, 3.8vw, 1.25rem);
+    letter-spacing: 0.25em;
+  }
+  .envelope-cta-sub {
+    font-size: 0.65rem;
+    letter-spacing: 0.22em;
+  }
+}
+

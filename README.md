@@ -36,20 +36,17 @@ A luxury interactive wedding invitation web application inspired by royal Indian
 8. **Live Countdown Timer**:
    - Real-time Days, Hours, Minutes, and Seconds countdown to the auspicious ceremony.
 
-9. **Interactive RSVP Modal & Guestbook**:
-   - Complete guest registration (Name, Phone/WhatsApp, Attendance, Guest count, Events, Dietary preferences, Blessings message).
-   - Celebratory gold & rose petal confetti shower on submission.
-   - Real-time local storage persistence and dynamic Blessings Wall (Guestbook).
-   - Direct 1-click WhatsApp RSVP sync.
+9. **Blessings & Wishes Wall**:
+   - Beautiful quotes and heartwarming greetings from close family and friends.
 
 ---
 
 ## 🛠️ How to Customize for Your Friend's Wedding
 
-All content is managed through a single configuration file: `wedding-config.js`.
+All content is managed through a single dedicated configuration file: `wedding-details.js`.
 
-### 1. Update Names & Dates
-Open `wedding-config.js` and modify:
+### 1. Update Names, Parents, Dates & Venue
+Open `wedding-details.js` and modify:
 ```javascript
 couple: {
   groom: {
@@ -77,7 +74,7 @@ When you have the couple's photos and videos:
   - `assets/images/couple-3.jpg`
   - `assets/images/couple-4.jpg`
   - `assets/images/venue.jpg`
-- Or update the file paths directly in `wedding-config.js` under `gallery` and `venue.image`.
+- Or update the file paths directly in `wedding-details.js` under `gallery` and `venue.image`.
 
 ### 3. Add Custom Music
 - Place any wedding instrumental MP3 file at `assets/audio/wedding-flute.mp3`.
