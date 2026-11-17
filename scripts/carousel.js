@@ -116,39 +116,41 @@ class WeddingCarousel {
     const cards = this.container.querySelectorAll('.carousel-card');
     const total = this.slidesData.length;
     const isMobile = window.innerWidth <= 600;
-    const transOffset = isMobile ? 54 : 65;
-    const scaleFactor = isMobile ? 0.8 : 0.82;
-    const rotAngle = isMobile ? 14 : 15;
-    const sideOpacity = isMobile ? '0.72' : '0.55';
+    const transOffset = isMobile ? 54 : 62;
+    const scaleFactor = isMobile ? 0.82 : 0.85;
+    const sideOpacity = isMobile ? '0.65' : '0.55';
 
     cards.forEach((card, idx) => {
-      let offset = idx - this.currentIndex;
+      let diff = idx - this.currentIndex;
+      // Circular wrap into [-total/2, total/2] to ensure all cards slide unidirectionally
+      while (diff > total / 2) diff -= total;
+      while (diff < -total / 2) diff += total;
 
-      card.classList.remove('active', 'left-1', 'left-2', 'right-1', 'right-2', 'hidden');
+      card.classList.remove('active', 'left-1', 'right-1', 'hidden');
 
-      if (offset === 0) {
+      if (diff === 0) {
         card.classList.add('active');
-        card.style.transform = `translateX(0) scale(1) translateZ(0)`;
+        card.style.transform = 'translateX(0) scale(1)';
         card.style.zIndex = '10';
         card.style.opacity = '1';
         card.style.pointerEvents = 'auto';
-      } else if (offset === -1 || (offset === total - 1 && total > 2)) {
+      } else if (diff === -1) {
         card.classList.add('left-1');
-        card.style.transform = `translateX(-${transOffset}%) scale(${scaleFactor}) rotateY(${rotAngle}deg)`;
+        card.style.transform = `translateX(-${transOffset}%) scale(${scaleFactor})`;
         card.style.zIndex = '5';
         card.style.opacity = sideOpacity;
         card.style.pointerEvents = 'auto';
-      } else if (offset === 1 || (offset === -(total - 1) && total > 2)) {
+      } else if (diff === 1) {
         card.classList.add('right-1');
-        card.style.transform = `translateX(${transOffset}%) scale(${scaleFactor}) rotateY(-${rotAngle}deg)`;
+        card.style.transform = `translateX(${transOffset}%) scale(${scaleFactor})`;
         card.style.zIndex = '5';
         card.style.opacity = sideOpacity;
         card.style.pointerEvents = 'auto';
       } else {
         card.classList.add('hidden');
-        card.style.opacity = '0';
+        card.style.transform = diff < 0 ? 'translateX(-120%) scale(0.7)' : 'translateX(120%) scale(0.7)';
         card.style.zIndex = '1';
-        card.style.transform = offset < 0 ? `translateX(-120%) scale(0.6)` : `translateX(120%) scale(0.6)`;
+        card.style.opacity = '0';
         card.style.pointerEvents = 'none';
       }
     });

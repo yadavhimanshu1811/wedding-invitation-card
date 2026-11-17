@@ -43,9 +43,11 @@
   height: clamp(360px, 48vw, 450px);
   border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.65s ease,
-              box-shadow 0.65s ease;
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 0.4s ease-out;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
   user-select: none;
   -webkit-user-select: none;
 }
@@ -255,22 +257,8 @@
     width: clamp(165px, 46vw, 195px);
     height: clamp(245px, 68vw, 290px);
   }
-  .carousel-card.left-1 {
-    transform: translateX(-54%) scale(0.8) rotateY(14deg) !important;
-    opacity: 0.72 !important;
-    filter: brightness(0.9);
-  }
-  .carousel-card.right-1 {
-    transform: translateX(54%) scale(0.8) rotateY(-14deg) !important;
-    opacity: 0.72 !important;
-    filter: brightness(0.9);
-  }
-  .carousel-card.active {
-    filter: brightness(1);
-    opacity: 1 !important;
-  }
   .carousel-card.hidden {
-    opacity: 0 !important;
+    opacity: 0;
     pointer-events: none;
   }
   .card-overlay {
