@@ -154,7 +154,7 @@ export const WEDDING_DETAILS = {
   // If no MP3 is provided, the website automatically plays a soothing flute raga.
   // --------------------------------------------------------------------------
   music: {
-    audioSrc: "assets/audio/dhadak-song.mp3"
+    audioSrc: "assets/audio/theme-song.mp3"
   },
 
   // --------------------------------------------------------------------------

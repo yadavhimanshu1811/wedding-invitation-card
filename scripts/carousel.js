@@ -24,7 +24,6 @@ class WeddingCarousel {
 
   init() {
     this.render();
-    this.setupLightbox();
     this.updateSlides();
 
     // Event listeners
@@ -66,13 +65,10 @@ class WeddingCarousel {
           ${this.slidesData.map((item, index) => `
             <div class="carousel-card" data-index="${index}">
               <div class="card-inner">
-                <img src="${item.image}" alt="${item.caption}" loading="lazy" />
+                <img src="${item.image}" alt="${item.caption || 'Wedding Photo'}" loading="lazy" />
                 <div class="card-overlay">
-                  <p class="card-caption">${item.caption}</p>
+                  <p class="card-caption">${item.caption || ''}</p>
                   <span class="card-subtitle">${item.subtitle || ''}</span>
-                  <button class="expand-btn" aria-label="View photo">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
-                  </button>
                 </div>
               </div>
             </div>
@@ -98,11 +94,9 @@ class WeddingCarousel {
     // Click on slide
     const cards = this.container.querySelectorAll('.carousel-card');
     cards.forEach(card => {
-      card.addEventListener('click', (e) => {
+      card.addEventListener('click', () => {
         const index = parseInt(card.getAttribute('data-index'), 10);
-        if (index === this.currentIndex) {
-          this.openLightbox(index);
-        } else {
+        if (index !== this.currentIndex) {
           this.goTo(index);
         }
       });
@@ -122,9 +116,10 @@ class WeddingCarousel {
     const cards = this.container.querySelectorAll('.carousel-card');
     const total = this.slidesData.length;
     const isMobile = window.innerWidth <= 600;
-    const transOffset = isMobile ? 48 : 65;
-    const scaleFactor = isMobile ? 0.78 : 0.82;
-    const rotAngle = isMobile ? 10 : 15;
+    const transOffset = isMobile ? 54 : 65;
+    const scaleFactor = isMobile ? 0.8 : 0.82;
+    const rotAngle = isMobile ? 14 : 15;
+    const sideOpacity = isMobile ? '0.72' : '0.55';
 
     cards.forEach((card, idx) => {
       let offset = idx - this.currentIndex;
@@ -136,21 +131,25 @@ class WeddingCarousel {
         card.style.transform = `translateX(0) scale(1) translateZ(0)`;
         card.style.zIndex = '10';
         card.style.opacity = '1';
+        card.style.pointerEvents = 'auto';
       } else if (offset === -1 || (offset === total - 1 && total > 2)) {
         card.classList.add('left-1');
         card.style.transform = `translateX(-${transOffset}%) scale(${scaleFactor}) rotateY(${rotAngle}deg)`;
         card.style.zIndex = '5';
-        card.style.opacity = isMobile ? '0.35' : '0.55';
+        card.style.opacity = sideOpacity;
+        card.style.pointerEvents = 'auto';
       } else if (offset === 1 || (offset === -(total - 1) && total > 2)) {
         card.classList.add('right-1');
         card.style.transform = `translateX(${transOffset}%) scale(${scaleFactor}) rotateY(-${rotAngle}deg)`;
         card.style.zIndex = '5';
-        card.style.opacity = isMobile ? '0.35' : '0.55';
+        card.style.opacity = sideOpacity;
+        card.style.pointerEvents = 'auto';
       } else {
         card.classList.add('hidden');
         card.style.opacity = '0';
         card.style.zIndex = '1';
         card.style.transform = offset < 0 ? `translateX(-120%) scale(0.6)` : `translateX(120%) scale(0.6)`;
+        card.style.pointerEvents = 'none';
       }
     });
 
@@ -178,43 +177,6 @@ class WeddingCarousel {
     this.updateSlides();
   }
 
-  setupLightbox() {
-    let modal = document.getElementById('lightbox-modal');
-    if (!modal) {
-      modal = document.createElement('div');
-      modal.id = 'lightbox-modal';
-      modal.className = 'lightbox-modal';
-      modal.innerHTML = `
-        <div class="lightbox-backdrop"></div>
-        <div class="lightbox-content">
-          <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
-          <img class="lightbox-img" id="lightbox-img" src="" alt="Full size photo" />
-          <p class="lightbox-caption" id="lightbox-caption"></p>
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      modal.querySelector('.lightbox-backdrop').addEventListener('click', () => {
-        modal.classList.remove('open');
-      });
-      document.getElementById('lightbox-close').addEventListener('click', () => {
-        modal.classList.remove('open');
-      });
-    }
-  }
-
-  openLightbox(index) {
-    const item = this.slidesData[index];
-    const modal = document.getElementById('lightbox-modal');
-    const img = document.getElementById('lightbox-img');
-    const caption = document.getElementById('lightbox-caption');
-
-    if (modal && img && item) {
-      img.src = item.image;
-      caption.textContent = item.caption;
-      modal.classList.add('open');
-    }
-  }
 }
 
 window.WeddingCarousel = WeddingCarousel;

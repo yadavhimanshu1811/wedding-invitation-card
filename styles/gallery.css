@@ -2,6 +2,18 @@
    3D COVERFLOW GALLERY & LIGHTBOX
    ========================================================================== */
 
+#section-gallery {
+  width: 100%;
+  overflow-x: clip;
+}
+
+#coverflow-container {
+  width: 100%;
+  max-width: 100%;
+  position: relative;
+  overflow: visible;
+}
+
 .carousel-stage {
   position: relative;
   width: 100%;
@@ -12,6 +24,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: visible;
 }
 
 .carousel-track {
@@ -95,29 +108,7 @@
   color: var(--gold-light);
 }
 
-.expand-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background: rgba(10, 15, 28, 0.7);
-  backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: var(--text-white);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-}
 
-.expand-btn:hover {
-  background: var(--gold-warm);
-  color: #111;
-  transform: scale(1.1);
-}
 
 /* Carousel Controls */
 .carousel-controls {
@@ -251,21 +242,36 @@
 
 @media (max-width: 600px) {
   .carousel-stage {
-    height: clamp(340px, 95vw, 420px);
+    height: clamp(290px, 76vw, 360px);
+    width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    perspective: 800px;
+  }
+  .carousel-track {
+    overflow: visible;
   }
   .carousel-card {
-    width: clamp(230px, 68vw, 290px);
-    height: clamp(310px, 90vw, 390px);
+    width: clamp(165px, 46vw, 195px);
+    height: clamp(245px, 68vw, 290px);
   }
   .carousel-card.left-1 {
-    transform: translateX(-48%) scale(0.78) rotateY(10deg) !important;
-    opacity: 0.35 !important;
+    transform: translateX(-54%) scale(0.8) rotateY(14deg) !important;
+    opacity: 0.72 !important;
+    filter: brightness(0.9);
   }
   .carousel-card.right-1 {
-    transform: translateX(48%) scale(0.78) rotateY(-10deg) !important;
-    opacity: 0.35 !important;
+    transform: translateX(54%) scale(0.8) rotateY(-14deg) !important;
+    opacity: 0.72 !important;
+    filter: brightness(0.9);
+  }
+  .carousel-card.active {
+    filter: brightness(1);
+    opacity: 1 !important;
+  }
+  .carousel-card.hidden {
+    opacity: 0 !important;
+    pointer-events: none;
   }
   .card-overlay {
     padding: 1rem 0.85rem;
@@ -276,12 +282,6 @@
   }
   .card-subtitle {
     font-size: 0.65rem;
-  }
-  .expand-btn {
-    top: 0.6rem;
-    right: 0.6rem;
-    width: 28px;
-    height: 28px;
   }
   .carousel-controls {
     gap: 1rem;
@@ -340,17 +340,6 @@ body.light-mode .carousel-dots .dot {
 body.light-mode .carousel-dots .dot.active {
   background: var(--gold-warm);
   box-shadow: 0 0 10px rgba(184, 134, 11, 0.5);
-}
-
-body.light-mode .expand-btn {
-  background: rgba(255, 255, 255, 0.85);
-  border-color: rgba(184, 134, 11, 0.3);
-  color: #241a10;
-}
-
-body.light-mode .expand-btn:hover {
-  background: var(--gold-warm);
-  color: #ffffff;
 }
 
 
