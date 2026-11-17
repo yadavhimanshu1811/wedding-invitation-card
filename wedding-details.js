@@ -48,7 +48,7 @@ export const WEDDING_DETAILS = {
     name: "Hotel Tirupatu",             // Name of hotel / resort / banquet
     subheading: "",        // Brief subtitle
     city: "Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan",                           // City & State
-    fullAddress: "Hotel Tirupatu, Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan 303108",
+    fullAddress: "Hotel Tirupati, Jaipur-Delhi highway, Sangteda, Kotputli, Rajasthan 303108",
     googleMapsUrl: "https://maps.app.goo.gl/NiPcZmxdfsEcno5j9", // Google Maps link for directions button
     image: "assets/images/venue.jpg"                      // Place your venue picture in public/assets/images/
   },
