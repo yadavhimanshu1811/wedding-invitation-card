@@ -73,6 +73,8 @@ When you have the couple's photos and videos:
   - `assets/images/couple-2.jpg`
   - `assets/images/couple-3.jpg`
   - `assets/images/couple-4.jpg`
+  - `assets/images/couple-5.jpg`
+  - `assets/images/couple-6.jpg`
   - `assets/images/venue.jpg`
 - Or update the file paths directly in `wedding-details.js` under `gallery` and `venue.image`.
 

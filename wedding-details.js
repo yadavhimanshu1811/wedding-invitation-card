@@ -16,17 +16,17 @@ export const WEDDING_DETAILS = {
   // --------------------------------------------------------------------------
   couple: {
     groom: {
-      firstName: "Aarav",                                  // e.g. "Nilesh"
-      fullName: "Aarav Sharma",                           // e.g. "Nilesh Goyal"
-      parents: "Smt. Sunita & Shri Rajesh Sharma",        // Groom's parents
+      firstName: "Tushar",                                  // e.g. "Nilesh"
+      fullName: "Tushar Agarwal",                           // e.g. "Nilesh Goyal"
+      parents: "Smt. Babita Agarwal & Shri Mukesh Agarwal",        // Groom's parents
     },
     bride: {
-      firstName: "Meera",                                 // e.g. "Lata"
-      fullName: "Meera Singhal",                          // e.g. "Lata Gagal"
-      parents: "Smt. Rekha & Shri Mahendra Singhal",      // Bride's parents
+      firstName: "Ritu",                                 // e.g. "Lata"
+      fullName: "Ritu Agarwal",                          // e.g. "Lata Gagal"
+      parents: "Smt. Alka Agarwal & Shri Ashok Agarwal",      // Bride's parents
     },
-    initials: "A & M",                                    // 2-3 letters displayed inside the golden crest (e.g. "L & N")
-    hashtag: "#AaravKiMeera",                             // e.g. "#LataWedsNilesh"
+    initials: "T & R",                                    // 2-3 letters displayed inside the golden crest (e.g. "L & N")
+    hashtag: "#TusharKiRitu",                             // e.g. "#LataWedsNilesh"
     tagline: "Two Hearts · One Forever"                   // Tagline displayed under names
   },
 
@@ -35,20 +35,20 @@ export const WEDDING_DETAILS = {
   // --------------------------------------------------------------------------
   // Main wedding date (Used for the live countdown timer)
   // Format: "YYYY-MM-DDTHH:mm:ss" (e.g. "2026-11-24T20:00:00")
-  weddingDate: "2026-11-28T19:30:00",
+  weddingDate: "2026-12-04T19:30:00",
 
   // Friendly date displayed on cards
-  formattedDate: "28 November 2026",
-  formattedDateShort: "28 · 11 · 2026",
+  formattedDate: "04 December 2026",
+  formattedDateShort: "04 · 12 · 2026",
 
   // --------------------------------------------------------------------------
   // 3. VENUE & LOCATION DETAILS
   // --------------------------------------------------------------------------
   venue: {
-    name: "The Grand Heritage Palace Resort",             // Name of hotel / resort / banquet
+    name: "Hotel Tirupatu",             // Name of hotel / resort / banquet
     subheading: "Lakeside Royal Palace & Gardens",        // Brief subtitle
     city: "Udaipur, Rajasthan",                           // City & State
-    fullAddress: "The Grand Heritage Palace Resort, Lake Pichola Road, Udaipur, Rajasthan 313001",
+    fullAddress: "Hotel Tirupatu, Lake Pichola Road, Udaipur, Rajasthan 313001",
     googleMapsUrl: "https://maps.google.com/?q=Udaipur+Rajasthan", // Google Maps link for directions button
     directionsNote: "Valet parking available at Main Royal Porch. 35 mins from Maharana Pratap Airport (UDR).",
     image: "assets/images/venue.jpg"                      // Place your venue picture in assets/images/
@@ -155,6 +155,16 @@ export const WEDDING_DETAILS = {
       image: "assets/images/couple-4.jpg",
       caption: "Laughter, timeless memories & endless love",
       subtitle: "Sunset Over the Lake"
+    },
+    {
+      image: "assets/images/couple-5.jpg",
+      caption: "Every step with you feels like home",
+      subtitle: "Bougainvillea Garden Walk"
+    },
+    {
+      image: "assets/images/couple-6.jpg",
+      caption: "Quiet conversations & a love for a lifetime",
+      subtitle: "Fairy-Lit Evening Lawn"
     }
   ],
 
@@ -164,7 +174,7 @@ export const WEDDING_DETAILS = {
   // If no MP3 is provided, the website automatically plays a soothing flute raga.
   // --------------------------------------------------------------------------
   music: {
-    audioSrc: "assets/audio/wedding-flute.mp3"
+    audioSrc: "assets/audio/dhadak-song.mp3"
   },
 
   // --------------------------------------------------------------------------
