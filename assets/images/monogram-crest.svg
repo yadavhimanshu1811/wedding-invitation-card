@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" width="240" height="240" fill="none">
+  <defs>
+    <linearGradient id="crestGold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3C4"/>
+      <stop offset="30%" stop-color="#E5C158"/>
+      <stop offset="60%" stop-color="#B8860B"/>
+      <stop offset="100%" stop-color="#F4D068"/>
+    </linearGradient>
+    <radialGradient id="crestAura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#E5C158" stop-opacity="0.25"/>
+      <stop offset="70%" stop-color="#E5C158" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#E5C158" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- Aura Background Glow -->
+  <circle cx="120" cy="120" r="105" fill="url(#crestAura)"/>
+
+  <!-- Rings -->
+  <circle cx="120" cy="120" r="100" stroke="url(#crestGold)" stroke-width="1.5" opacity="0.85" filter="url(#softGlow)"/>
+  <circle cx="120" cy="120" r="94" stroke="url(#crestGold)" stroke-width="0.75" stroke-dasharray="2 4" opacity="0.6"/>
+  <circle cx="120" cy="120" r="88" stroke="url(#crestGold)" stroke-width="1" opacity="0.4"/>
+
+  <!-- Top Star -->
+  <polygon points="120,24 122.5,33 131,35.5 122.5,38 120,47 117.5,38 109,35.5 117.5,33" fill="url(#crestGold)"/>
+
+  <!-- Botanical Laurels - Left Branch -->
+  <g stroke="url(#crestGold)" fill="url(#crestGold)" stroke-width="1" filter="url(#softGlow)">
+    <path d="M48 135 C42 165 65 195 105 204" fill="none" stroke-width="1.2"/>
+    <path d="M48 135 Q40 130 38 122 Q46 125 48 135 Z" opacity="0.85"/>
+    <path d="M47 150 Q36 150 33 143 Q42 143 47 150 Z" opacity="0.85"/>
+    <path d="M52 165 Q40 170 38 163 Q46 160 52 165 Z" opacity="0.85"/>
+    <path d="M63 180 Q53 188 49 181 Q56 176 63 180 Z" opacity="0.85"/>
+    <path d="M80 195 Q72 205 67 199 Q73 192 80 195 Z" opacity="0.85"/>
+    <path d="M100 203 Q94 214 88 209 Q93 201 100 203 Z" opacity="0.85"/>
+  </g>
+
+  <!-- Botanical Laurels - Right Branch -->
+  <g stroke="url(#crestGold)" fill="url(#crestGold)" stroke-width="1" filter="url(#softGlow)">
+    <path d="M192 135 C198 165 175 195 135 204" fill="none" stroke-width="1.2"/>
+    <path d="M192 135 Q200 130 202 122 Q194 125 192 135 Z" opacity="0.85"/>
+    <path d="M193 150 Q204 150 207 143 Q198 143 193 150 Z" opacity="0.85"/>
+    <path d="M188 165 Q200 170 202 163 Q194 160 188 165 Z" opacity="0.85"/>
+    <path d="M177 180 Q187 188 191 181 Q184 176 177 180 Z" opacity="0.85"/>
+    <path d="M160 195 Q168 205 173 199 Q167 192 160 195 Z" opacity="0.85"/>
+    <path d="M140 203 Q146 214 152 209 Q147 201 140 203 Z" opacity="0.85"/>
+  </g>
+
+  <!-- Bottom Accent Knot / Diamond -->
+  <polygon points="120,201 123,205 120,209 117,205" fill="url(#crestGold)"/>
+
+  <!-- Centered Couple Monogram Letters (rendered in Great Vibes / Italiana styling) -->
+  <text x="120" y="132" text-anchor="middle" font-family="'Great Vibes', 'Italiana', cursive, serif" font-size="64" font-weight="normal" fill="url(#crestGold)" filter="url(#softGlow)" letter-spacing="2">
+    <tspan id="monogram-initials">A &amp; M</tspan>
+  </text>
+</svg>

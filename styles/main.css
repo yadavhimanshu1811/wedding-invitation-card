@@ -1,0 +1,401 @@
+/* ==========================================================================
+   LUXURY WEDDING INVITATION DESIGN SYSTEM
+   Fonts: 'Italiana', 'Great Vibes', 'Cormorant Garamond', 'Jost'
+   ========================================================================== */
+
+:root {
+  /* Cosmic Palette */
+  --bg-deep-space: #03050a;
+  --bg-space-dark: #070a14;
+  --bg-space-elevated: #0f1424;
+  --bg-parchment: #e6e1d7;
+  --bg-parchment-light: #ece7de;
+  --text-parchment-dark: #1e1e1e;
+  --text-parchment-muted: #5e5950;
+
+  /* Gold & Metallic Accents */
+  --gold-primary: #d4af37;
+  --gold-light: #fbeea8;
+  --gold-warm: #e5c158;
+  --gold-dark: #996e1b;
+  --gold-gradient: linear-gradient(135deg, #fef4cf 0%, #e2be5a 40%, #b8860b 80%, #f6e28f 100%);
+  --gold-glow: 0 0 18px rgba(229, 193, 88, 0.45);
+  --gold-border: rgba(212, 175, 55, 0.35);
+
+  /* Typography Colors */
+  --text-white: #ffffff;
+  --text-white-soft: #f1f5f9;
+  --text-starlight: #e2e8f0;
+  --text-muted: #94a3b8;
+  --text-gold: #e5c158;
+
+  /* Typography Fonts */
+  --font-display: 'Italiana', serif;
+  --font-script: 'Great Vibes', cursive;
+  --font-editorial: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Jost', sans-serif;
+
+  /* Spacing & Transitions */
+  --transition-smooth: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep-space);
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+body {
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+  background-color: var(--bg-deep-space);
+}
+
+/* Background Starry Canvas */
+#stars-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Blue Atmospheric Vignette */
+.ambient-glow-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: radial-gradient(circle at 50% 30%, rgba(30, 58, 138, 0.15), transparent 70%),
+              radial-gradient(circle at 50% 80%, rgba(88, 28, 135, 0.1), transparent 60%);
+  box-shadow: inset 0 0 100px rgba(10, 25, 60, 0.8);
+}
+
+/* Main Content Wrapper */
+.invitation-container {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.invitation-container.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Section Architecture */
+.invitation-section {
+  position: relative;
+  padding: 5rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Architectural Minimalist Section Header: e.g. "01 ──── THE INVITATION" */
+.section-meta-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 650px;
+  margin-bottom: 2.5rem;
+}
+
+.section-number {
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.25em;
+  color: var(--gold-light);
+  opacity: 0.8;
+}
+
+.section-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(229, 193, 88, 0.6) 0%, rgba(229, 193, 88, 0.05) 100%);
+}
+
+.section-name {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-starlight);
+  opacity: 0.85;
+}
+
+/* Sacred Ganesh Motif */
+.sacred-ganesh-block {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ganesh-svg-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1rem;
+  display: block;
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+.ganesh-mantra {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.15rem;
+  letter-spacing: 0.15em;
+  color: var(--gold-light);
+  opacity: 0.9;
+}
+
+/* Section Title Typography */
+.section-headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-align: center;
+  text-transform: uppercase;
+  line-height: 1.25;
+  color: var(--text-white);
+  margin-bottom: 1rem;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+}
+
+.section-subtitle {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  letter-spacing: 0.05em;
+  text-align: center;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+}
+
+/* Scroll Reveal Animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Floating Audio Widget */
+.floating-music-widget {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.music-circle-btn {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(15, 20, 36, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5), var(--gold-glow);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+}
+
+.music-circle-btn:hover {
+  transform: scale(1.1);
+  border-color: var(--gold-warm);
+}
+
+.music-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  height: 18px;
+}
+
+.music-bars span {
+  width: 2.5px;
+  background-color: var(--gold-warm);
+  border-radius: 2px;
+  height: 4px;
+  transition: height 0.2s ease;
+}
+
+.music-circle-btn.playing .music-bars span:nth-child(1) {
+  animation: bounceBar 1.2s ease-in-out infinite alternate;
+}
+.music-circle-btn.playing .music-bars span:nth-child(2) {
+  animation: bounceBar 0.9s ease-in-out infinite alternate 0.2s;
+}
+.music-circle-btn.playing .music-bars span:nth-child(3) {
+  animation: bounceBar 1.4s ease-in-out infinite alternate 0.4s;
+}
+.music-circle-btn.playing .music-bars span:nth-child(4) {
+  animation: bounceBar 1.0s ease-in-out infinite alternate 0.1s;
+}
+
+@keyframes bounceBar {
+  0% { height: 4px; }
+  100% { height: 18px; }
+}
+
+.music-status-tooltip {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  color: var(--text-starlight);
+  background: rgba(10, 15, 28, 0.85);
+  backdrop-filter: blur(8px);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  opacity: 0;
+  transform: translateX(10px);
+  transition: var(--transition-smooth);
+}
+
+.floating-music-widget:hover .music-status-tooltip {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Sticky Bottom Quick Action Bar */
+.sticky-quick-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 90;
+  background: linear-gradient(180deg, transparent 0%, rgba(3, 5, 10, 0.95) 40%, #03050a 100%);
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition-smooth);
+}
+
+.sticky-quick-bar.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.sticky-quick-bar > * {
+  pointer-events: auto;
+}
+
+.btn-luxury-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--gold-gradient);
+  color: #1a1505;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.85rem 1.8rem;
+  border-radius: 40px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(212, 175, 55, 0.35);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-luxury-gold:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 10px 28px rgba(212, 175, 55, 0.55);
+}
+
+.btn-luxury-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(15, 20, 36, 0.6);
+  backdrop-filter: blur(10px);
+  color: var(--gold-light);
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.6rem;
+  border-radius: 40px;
+  border: 1px solid var(--gold-border);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.btn-luxury-outline:hover {
+  background: rgba(229, 193, 88, 0.15);
+  border-color: var(--gold-warm);
+  transform: translateY(-2px);
+}
+
+/* Animations */
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.05); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .invitation-section {
+    padding: 3.5rem 0;
+  }
+  .floating-music-widget {
+    bottom: 4.8rem;
+    right: 1.2rem;
+  }
+  .btn-luxury-gold, .btn-luxury-outline {
+    font-size: 0.75rem;
+    padding: 0.75rem 1.25rem;
+  }
+}

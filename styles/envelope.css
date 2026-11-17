@@ -1,0 +1,139 @@
+/* ==========================================================================
+   ENVELOPE / TAP TO OPEN COVER SCREEN
+   Matches the mystical starry opening invitation experience
+   ========================================================================== */
+
+.envelope-cover {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: var(--bg-deep-space);
+  overflow: hidden;
+  transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 1.2s;
+}
+
+.envelope-cover.opened {
+  opacity: 0;
+  transform: scale(1.06);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* Atmospheric vignette for the cover */
+.envelope-cover::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, rgba(2, 4, 10, 0.85) 90%);
+  pointer-events: none;
+}
+
+.envelope-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+  max-width: 650px;
+}
+
+.envelope-script-title {
+  font-family: var(--font-script);
+  font-size: clamp(3.5rem, 8vw, 6.2rem);
+  font-weight: 400;
+  color: var(--text-white);
+  line-height: 1.1;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.8),
+               0 0 60px rgba(229, 193, 88, 0.3);
+  letter-spacing: 0.02em;
+}
+
+.envelope-sub-tagline {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: clamp(1.2rem, 3vw, 1.7rem);
+  letter-spacing: 0.08em;
+  color: var(--text-starlight);
+  opacity: 0.88;
+  margin-bottom: 3.5rem;
+}
+
+/* Central Glowing Ring / Orb Button */
+.tap-orb-trigger {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orb-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  animation: orbRingPulse 2.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.orb-ring::after {
+  content: '';
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 193, 88, 0.2);
+  animation: orbRipple 2.8s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.orb-core {
+  width: 14px;
+  height: 14px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.9), 0 0 32px rgba(229, 193, 88, 0.8);
+  animation: coreGlow 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes orbRingPulse {
+  0% { transform: scale(0.92); opacity: 0.4; }
+  50% { transform: scale(1.08); opacity: 0.9; }
+  100% { transform: scale(0.92); opacity: 0.4; }
+}
+
+@keyframes orbRipple {
+  0% { transform: scale(0.85); opacity: 0.8; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes coreGlow {
+  0% { transform: scale(0.85); box-shadow: 0 0 10px #ffffff; }
+  100% { transform: scale(1.25); box-shadow: 0 0 24px #ffffff, 0 0 45px var(--gold-warm); }
+}
+
+.envelope-cta-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.1rem, 2.5vw, 1.45rem);
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.envelope-cta-sub {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  opacity: 0.75;
+}

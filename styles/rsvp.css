@@ -1,0 +1,309 @@
+/* ==========================================================================
+   RSVP MODAL, BLESSINGS WALL & CELEBRATION CONFETTI
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Wishes / Blessings Wall (Guestbook)
+   -------------------------------------------------------------------------- */
+.wishes-wall-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.wish-card {
+  position: relative;
+  background: rgba(13, 18, 34, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(229, 193, 88, 0.2);
+  border-radius: 6px;
+  padding: 1.8rem 1.6rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: var(--transition-smooth);
+}
+
+.wish-card:hover {
+  border-color: var(--gold-warm);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), var(--gold-glow);
+}
+
+.wish-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 0.8rem;
+}
+
+.wish-author {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.1em;
+  color: var(--gold-light);
+}
+
+.wish-date {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.wish-text {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--text-white-soft);
+  line-height: 1.55;
+  margin-bottom: 1rem;
+}
+
+.wish-accent {
+  align-self: flex-end;
+  color: var(--gold-warm);
+  font-size: 0.75rem;
+  opacity: 0.6;
+}
+
+/* --------------------------------------------------------------------------
+   RSVP Modal
+   -------------------------------------------------------------------------- */
+.rsvp-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 3000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.rsvp-modal.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.rsvp-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(3, 5, 10, 0.88);
+  backdrop-filter: blur(14px);
+}
+
+.rsvp-modal-content {
+  position: relative;
+  z-index: 2;
+  width: 90%;
+  max-width: 580px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: #0b0f1c;
+  border: 1px solid rgba(229, 193, 88, 0.35);
+  border-radius: 8px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), var(--gold-glow);
+}
+
+.rsvp-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.rsvp-close-btn:hover {
+  color: var(--text-white);
+  transform: rotate(90deg);
+}
+
+.rsvp-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.rsvp-title {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-white);
+  margin-bottom: 0.4rem;
+}
+
+.rsvp-deadline {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--gold-light);
+}
+
+/* Form Controls */
+.form-group {
+  margin-bottom: 1.4rem;
+}
+
+.form-label {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-starlight);
+  margin-bottom: 0.5rem;
+}
+
+.form-input, .form-textarea, .form-select {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(229, 193, 88, 0.25);
+  border-radius: 4px;
+  padding: 0.85rem 1rem;
+  color: var(--text-white);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--gold-warm);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 12px rgba(229, 193, 88, 0.35);
+}
+
+/* Radio Group: Accept / Decline */
+.radio-cards-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.radio-card {
+  position: relative;
+}
+
+.radio-card input {
+  position: absolute;
+  opacity: 0;
+}
+
+.radio-card-body {
+  border: 1px solid rgba(229, 193, 88, 0.2);
+  border-radius: 4px;
+  padding: 0.85rem;
+  text-align: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.03);
+  transition: var(--transition-smooth);
+}
+
+.radio-card input:checked + .radio-card-body {
+  border-color: var(--gold-warm);
+  background: rgba(229, 193, 88, 0.15);
+  box-shadow: 0 0 14px rgba(229, 193, 88, 0.3);
+}
+
+.radio-card-title {
+  display: block;
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: var(--text-white);
+}
+
+/* Checkbox Row for Events */
+.checkbox-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  color: var(--text-starlight);
+  cursor: pointer;
+}
+
+.checkbox-item input[type="checkbox"] {
+  accent-color: var(--gold-warm);
+  width: 16px;
+  height: 16px;
+}
+
+.rsvp-submit-btn {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* Success State */
+.rsvp-success-state {
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+.success-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: rgba(229, 193, 88, 0.15);
+  border: 1px solid var(--gold-warm);
+  color: var(--gold-warm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  font-size: 1.8rem;
+  box-shadow: 0 0 20px rgba(229, 193, 88, 0.4);
+}
+
+.success-headline {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  color: var(--text-white);
+  margin-bottom: 0.5rem;
+}
+
+.success-message {
+  font-family: var(--font-editorial);
+  font-size: 1.15rem;
+  color: var(--text-starlight);
+  margin-bottom: 2rem;
+  line-height: 1.5;
+}
+
+/* Confetti Layer */
+#confetti-canvas {
+  position: fixed;
+  inset: 0;
+  z-index: 4000;
+  pointer-events: none;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .rsvp-modal-content {
+    padding: 2.2rem 1.5rem;
+  }
+  .checkbox-grid {
+    grid-template-columns: 1fr;
+  }
+}

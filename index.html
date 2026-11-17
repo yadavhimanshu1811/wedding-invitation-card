@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aarav & Meera · Wedding Invitation</title>
+
+  <!-- SEO & Social Open Graph -->
+  <meta name="description" content="Together with their families, Aarav & Meera invite you to celebrate their wedding in Udaipur, Rajasthan." />
+  <meta property="og:title" content="Aarav & Meera · Wedding Invitation" />
+  <meta property="og:description" content="Two Hearts · One Forever. Join us for our wedding celebration." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/images/couple-1.jpg" />
+
+  <!-- Google Fonts: Italiana, Great Vibes, Cormorant Garamond, Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Great+Vibes&family=Italiana&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/envelope.css" />
+  <link rel="stylesheet" href="styles/marquee.css" />
+  <link rel="stylesheet" href="styles/cards.css" />
+  <link rel="stylesheet" href="styles/gallery.css" />
+  <link rel="stylesheet" href="styles/rsvp.css" />
+</head>
+<body>
+
+  <!-- Background Dynamic Starry Sky Canvas -->
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- Soft Ambient Cosmic Atmosphere Overlay -->
+  <div class="ambient-glow-layer"></div>
+
+  <!-- Confetti Celebration Canvas -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- ======================================================================
+       00: THE ENVELOPE / TAP TO OPEN SCREEN
+       ====================================================================== -->
+  <section id="envelope-cover-screen" class="envelope-cover" aria-label="Wedding Invitation Envelope">
+    <div class="envelope-inner">
+      <h1 class="envelope-script-title">You are invited</h1>
+      <p class="envelope-sub-tagline">To celebrate our wedding</p>
+
+      <!-- Glowing Pulsing Orb Button -->
+      <div class="tap-orb-trigger" id="tap-to-open-trigger" role="button" tabindex="0" aria-label="Tap to open invitation">
+        <div class="orb-ring"></div>
+        <div class="orb-core"></div>
+      </div>
+
+      <h2 class="envelope-cta-text">TAP THE SCREEN</h2>
+      <p class="envelope-cta-sub">TO OPEN YOUR INVITATION</p>
+    </div>
+  </section>
+
+  <!-- ======================================================================
+       MAIN WEDDING INVITATION CONTAINER
+       ====================================================================== -->
+  <main id="invitation-main-content" class="invitation-container">
+
+    <!-- Header Section: Sacred Ganesha & Welcome -->
+    <header class="invitation-section header-section">
+      <div class="sacred-ganesh-block scroll-reveal">
+        <img src="assets/images/ganesh-crest.svg" alt="Shree Ganeshaya Namah" class="ganesh-svg-icon" />
+        <p class="ganesh-mantra">॥ श्री गणेशाय नमः ॥</p>
+      </div>
+
+      <h2 class="section-headline scroll-reveal">
+        <span class="couple-groom-name">Aarav</span>
+        <span class="card-ampersand">&</span>
+        <span class="couple-bride-name">Meera</span>
+      </h2>
+      <p class="section-subtitle scroll-reveal couple-tagline">Two Hearts · One Forever</p>
+    </header>
+
+    <!-- Infinite Marquee Ticker Ribbon -->
+    <div class="marquee-container" aria-hidden="true">
+      <div class="marquee-track">
+        <span class="marquee-content" id="marquee-track-1"></span>
+        <span class="marquee-content" id="marquee-track-2"></span>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SECTION 01: THE INVITATION
+         ====================================================================== -->
+    <section class="invitation-section" id="section-invitation">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">01</span>
+        <span class="section-line"></span>
+        <span class="section-name">THE INVITATION</span>
+      </div>
+
+      <div class="parchment-card-wrapper scroll-reveal">
+        <article class="parchment-card">
+          <div class="parchment-inset-border"></div>
+          <span class="card-pre-title">DEAR FAMILY & FRIENDS</span>
+          <h2 class="card-main-title">TWO HEARTS<br />ONE<br />FOREVER</h2>
+          <p class="card-body-text">
+            With the blessings of our beloved parents and families, we would love to celebrate this auspicious day with you.
+          </p>
+          <h3 class="card-couple-names">
+            <span class="couple-groom-name">Aarav</span>
+            <span class="card-ampersand">&</span>
+            <span class="couple-bride-name">Meera</span>
+          </h3>
+
+          <div class="card-parents-text">
+            <p><strong>Groom's Parents:</strong> <span class="couple-groom-parents">Smt. Sunita & Shri Rajesh Sharma</span></p>
+            <p style="margin-top: 0.35rem;"><strong>Bride's Parents:</strong> <span class="couple-bride-parents">Smt. Rekha & Shri Mahendra Singhal</span></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 02: SAVE THE DATE (Tactile Pull-Card Pocket)
+         ====================================================================== -->
+    <section class="invitation-section" id="section-date">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">02</span>
+        <span class="section-line"></span>
+        <span class="section-name">SAVE THE DATE</span>
+      </div>
+
+      <h2 class="section-headline scroll-reveal">THE NIGHT WE<br />SAY FOREVER</h2>
+
+      <div class="pull-card-container scroll-reveal">
+        <!-- Inner Sliding Date Card -->
+        <div class="inner-date-card" id="inner-date-card">
+          <h4>OFFICIAL INVITATION</h4>
+          <h3 class="revealed-date wedding-date-formatted">28 November 2026</h3>
+          <p class="revealed-day">Saturday Evening</p>
+          <p class="revealed-venue venue-title">The Grand Heritage Palace Resort, Udaipur</p>
+          <button class="btn-luxury-gold" id="add-all-calendar-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Save to Calendar
+          </button>
+        </div>
+
+        <!-- Outer Dark Pocket Sleeve -->
+        <div class="pocket-sleeve" id="pocket-sleeve" role="button" tabindex="0" aria-label="Pull to view wedding date">
+          <div class="pocket-meta-top">
+            <span>NO. 28</span>
+            <span>PRIVATE</span>
+          </div>
+
+          <h3 class="pocket-couple-title">
+            <span class="couple-groom-name">Aarav</span><br />
+            <span class="card-ampersand">&</span><br />
+            <span class="couple-bride-name">Meera</span>
+          </h3>
+
+          <div class="pocket-pull-hint">
+            <span id="pull-hint-text">PULL THE CARD TO SEE THE DATE</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 03: THE CELEBRATIONS
+         ====================================================================== -->
+    <section class="invitation-section" id="section-celebrations">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">03</span>
+        <span class="section-line"></span>
+        <span class="section-name">THE CELEBRATIONS</span>
+      </div>
+
+      <h2 class="section-headline scroll-reveal">TWO DAYS OF<br />CELEBRATION</h2>
+      <p class="section-subtitle scroll-reveal">Join us as each ceremony weaves memories of joy, dance, and timeless love.</p>
+
+      <!-- Events Dynamic Container -->
+      <div class="events-timeline" id="events-timeline-container">
+        <!-- Rendered dynamically by scripts/main.js from WEDDING_CONFIG -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 04: BEFORE FOREVER (Pre-Wedding Moments Gallery)
+         ====================================================================== -->
+    <section class="invitation-section" id="section-gallery">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">04</span>
+        <span class="section-line"></span>
+        <span class="section-name">BEFORE FOREVER</span>
+      </div>
+
+      <h2 class="section-headline scroll-reveal">BEFORE<br />FOREVER</h2>
+      <p class="section-subtitle scroll-reveal">Swipe through a few of our favourite memories</p>
+
+      <!-- 3D Coverflow Container -->
+      <div id="coverflow-container" class="scroll-reveal">
+        <!-- Rendered by scripts/carousel.js -->
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 05: THE VENUE
+         ====================================================================== -->
+    <section class="invitation-section" id="section-venue">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">05</span>
+        <span class="section-line"></span>
+        <span class="section-name">THE VENUE</span>
+      </div>
+
+      <div class="venue-card-wrapper scroll-reveal">
+        <article class="venue-card">
+          <div class="parchment-inset-border"></div>
+          <span class="venue-tag">JOIN US AT</span>
+          <h2 class="venue-name-display venue-title">The Grand Heritage Palace Resort</h2>
+          <p class="venue-city-display venue-city">Udaipur, Rajasthan</p>
+
+          <a href="#" target="_blank" rel="noopener noreferrer" class="venue-btn-open" id="venue-map-link">
+            OPEN LOCATION
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+
+          <div class="venue-photo-container">
+            <img id="venue-hero-img" src="assets/images/venue.jpg" alt="Palace Wedding Venue at Night" loading="lazy" />
+          </div>
+
+          <p class="card-parents-text venue-directions-note" style="margin-top: 1.5rem;">
+            Valet parking available at Main Royal Porch. 35 mins from Maharana Pratap Airport (UDR).
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 06: COUNTING DOWN
+         ====================================================================== -->
+    <section class="invitation-section" id="section-countdown">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">06</span>
+        <span class="section-line"></span>
+        <span class="section-name">COUNTING DOWN</span>
+      </div>
+
+      <div class="countdown-grid scroll-reveal">
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-days">00</span>
+          <span class="countdown-label">DAYS</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-hours">00</span>
+          <span class="countdown-label">HOURS</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-minutes">00</span>
+          <span class="countdown-label">MINUTES</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-num" id="cd-seconds">00</span>
+          <span class="countdown-label">SECONDS</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 07: WITH LOVE (Monogram Crest)
+         ====================================================================== -->
+    <section class="invitation-section monogram-section" id="section-monogram">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">07</span>
+        <span class="section-line"></span>
+        <span class="section-name">WITH LOVE</span>
+      </div>
+
+      <div class="scroll-reveal">
+        <img src="assets/images/monogram-crest.svg" alt="Couple Monogram Seal" class="monogram-crest-svg" />
+        <h3 class="card-couple-names" style="color: var(--text-white); margin-top: 1rem;">
+          <span class="couple-groom-name">Aarav</span>
+          <span class="card-ampersand" style="color: var(--gold-warm);">&</span>
+          <span class="couple-bride-name">Meera</span>
+        </h3>
+        <p class="section-subtitle" style="margin-top: 0.5rem; margin-bottom: 2rem;">
+          We cannot wait to celebrate the most special days of our lives with you!
+        </p>
+        <button class="btn-luxury-gold open-rsvp-btn">
+          RSVP FOR CELEBRATION
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         SECTION 08: BLESSINGS WALL & GUESTBOOK
+         ====================================================================== -->
+    <section class="invitation-section" id="section-guestbook">
+      <div class="section-meta-header scroll-reveal">
+        <span class="section-number">08</span>
+        <span class="section-line"></span>
+        <span class="section-name">BLESSINGS &amp; WISHES</span>
+      </div>
+
+      <h2 class="section-headline scroll-reveal">WARM WISHES</h2>
+      <p class="section-subtitle scroll-reveal">Leave your love and blessings for the bride and groom.</p>
+
+      <div class="wishes-wall-grid scroll-reveal" id="wishes-list">
+        <!-- Rendered by scripts/rsvp-guestbook.js -->
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="text-align: center; padding: 4rem 1rem 7rem; border-top: 1px solid rgba(229, 193, 88, 0.2); margin-top: 3rem;">
+      <p class="ganesh-mantra" style="font-size: 1rem; margin-bottom: 0.8rem;">With Best Compliments From Sharma &amp; Singhal Families</p>
+      <p style="font-family: var(--font-sans); font-size: 0.72rem; letter-spacing: 0.25em; color: var(--text-muted); text-transform: uppercase;">
+        Crafted with love for our wedding celebration
+      </p>
+    </footer>
+
+  </main>
+
+  <!-- ======================================================================
+       FLOATING AUDIO WIDGET (Bottom Right)
+       ====================================================================== -->
+  <aside class="floating-music-widget" aria-label="Music Controls">
+    <span class="music-status-tooltip">Music: Paused</span>
+    <button class="music-circle-btn" id="music-toggle-btn" aria-label="Play Wedding Music">
+      <div class="music-bars">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </button>
+  </aside>
+
+  <!-- ======================================================================
+       STICKY BOTTOM ACTION BAR (RSVP & Calendar)
+       ====================================================================== -->
+  <nav class="sticky-quick-bar" id="sticky-quick-bar">
+    <button class="btn-luxury-gold open-rsvp-btn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      RSVP NOW
+    </button>
+    <a href="#section-celebrations" class="btn-luxury-outline">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      VIEW ITINERARY
+    </a>
+  </nav>
+
+  <!-- ======================================================================
+       INTERACTIVE RSVP MODAL
+       ====================================================================== -->
+  <div class="rsvp-modal" id="rsvp-modal" role="dialog" aria-modal="true" aria-labelledby="rsvp-title-id">
+    <div class="rsvp-backdrop"></div>
+    <div class="rsvp-modal-content">
+      <button class="rsvp-close-btn" id="close-rsvp-btn" aria-label="Close RSVP form">✕</button>
+
+      <div class="rsvp-header">
+        <h2 class="rsvp-title" id="rsvp-title-id">RSVP</h2>
+        <p class="rsvp-deadline">Kindly reply by 20 November 2026</p>
+      </div>
+
+      <!-- RSVP Form -->
+      <form id="rsvp-form">
+        <!-- Name -->
+        <div class="form-group">
+          <label class="form-label" for="guestName">Your Full Name *</label>
+          <input type="text" id="guestName" name="guestName" class="form-input" placeholder="e.g. Rahul Verma" required />
+        </div>
+
+        <!-- Phone / WhatsApp -->
+        <div class="form-group">
+          <label class="form-label" for="guestPhone">WhatsApp / Phone Number *</label>
+          <input type="tel" id="guestPhone" name="guestPhone" class="form-input" placeholder="e.g. +91 98765 43210" required />
+        </div>
+
+        <!-- Attendance -->
+        <div class="form-group">
+          <label class="form-label">Will you be attending? *</label>
+          <div class="radio-cards-row">
+            <label class="radio-card">
+              <input type="radio" name="attendance" value="Joyfully Attending" checked />
+              <div class="radio-card-body">
+                <span class="radio-card-title">✨ Joyfully Accept</span>
+              </div>
+            </label>
+            <label class="radio-card">
+              <input type="radio" name="attendance" value="Regretfully Decline" />
+              <div class="radio-card-body">
+                <span class="radio-card-title">Regretfully Decline</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <!-- Number of Guests -->
+        <div class="form-group">
+          <label class="form-label" for="guestCount">Total Number of Guests</label>
+          <select id="guestCount" name="guestCount" class="form-select">
+            <option value="1">1 Person</option>
+            <option value="2" selected>2 Persons</option>
+            <option value="3">3 Persons</option>
+            <option value="4">4 Persons</option>
+            <option value="5+">5+ Persons (Family)</option>
+          </select>
+        </div>
+
+        <!-- Events Attending -->
+        <div class="form-group">
+          <label class="form-label">Which ceremonies will you attend?</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item">
+              <input type="checkbox" name="events" value="Mehendi" checked />
+              Mehendi (27 Nov)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="events" value="Sangeet" checked />
+              Sangeet Night (27 Nov)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="events" value="Haldi" checked />
+              Haldi (28 Nov)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="events" value="Wedding" checked />
+              Wedding Pheras (28 Nov)
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" name="events" value="Reception" checked />
+              Reception Dinner (28 Nov)
+            </label>
+          </div>
+        </div>
+
+        <!-- Dietary Preference -->
+        <div class="form-group">
+          <label class="form-label" for="foodPref">Dietary Preference</label>
+          <select id="foodPref" name="foodPref" class="form-select">
+            <option value="Vegetarian" selected>Vegetarian</option>
+            <option value="Jain (No Root Veg)">Jain (Pure Vegetarian, No Onion/Garlic)</option>
+            <option value="Non-Vegetarian">Non-Vegetarian</option>
+          </select>
+        </div>
+
+        <!-- Warm Wishes -->
+        <div class="form-group">
+          <label class="form-label" for="blessings">A message or blessing for the couple</label>
+          <textarea id="blessings" name="blessings" class="form-textarea" rows="3" placeholder="Write your heartfelt wishes..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-luxury-gold rsvp-submit-btn">
+          SUBMIT RSVP &amp; BLESSINGS
+        </button>
+      </form>
+
+      <!-- Success State -->
+      <div id="rsvp-success-state" class="rsvp-success-state" style="display: none;">
+        <div class="success-icon">✓</div>
+        <h3 class="success-headline">Thank You, <span id="success-guest-name">Friend</span>!</h3>
+        <p class="success-message">
+          Your RSVP and heartfelt blessings have been lovingly recorded. We look forward to celebrating with you under the stars!
+        </p>
+
+        <a id="whatsapp-rsvp-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-luxury-gold" style="display: inline-flex; margin-bottom: 1rem;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/></svg>
+          Send Confirmation on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript ES Module Application -->
+  <script type="module" src="/scripts/main.js"></script>
+
+</body>
+</html>
