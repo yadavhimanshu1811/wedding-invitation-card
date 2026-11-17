@@ -51,7 +51,7 @@ export const WEDDING_DETAILS = {
     fullAddress: "Hotel Tirupatu, Lake Pichola Road, Udaipur, Rajasthan 313001",
     googleMapsUrl: "https://maps.google.com/?q=Udaipur+Rajasthan", // Google Maps link for directions button
     directionsNote: "Valet parking available at Main Royal Porch. 35 mins from Maharana Pratap Airport (UDR).",
-    image: "assets/images/venue.jpg"                      // Place your venue picture in assets/images/
+    image: "assets/images/venue.jpg"                      // Place your venue picture in public/assets/images/
   },
 
   // --------------------------------------------------------------------------
@@ -133,7 +133,7 @@ export const WEDDING_DETAILS = {
 
   // --------------------------------------------------------------------------
   // 5. PHOTO GALLERY ("BEFORE FOREVER")
-  // Replace the images with the couple's pictures in assets/images/
+  // Put photos in public/assets/images/
   // --------------------------------------------------------------------------
   gallery: [
     {
@@ -170,7 +170,7 @@ export const WEDDING_DETAILS = {
 
   // --------------------------------------------------------------------------
   // 6. BACKGROUND MUSIC
-  // Put your audio track MP3 in assets/audio/wedding-flute.mp3
+  // Put your audio track MP3 in public/assets/audio/
   // If no MP3 is provided, the website automatically plays a soothing flute raga.
   // --------------------------------------------------------------------------
   music: {

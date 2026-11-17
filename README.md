@@ -68,18 +68,18 @@ formattedDate: "15 December 2026",
 
 ### 2. Replace Photos & Videos
 When you have the couple's photos and videos:
-- Drop them into `assets/images/`:
-  - `assets/images/couple-1.jpg`
-  - `assets/images/couple-2.jpg`
-  - `assets/images/couple-3.jpg`
-  - `assets/images/couple-4.jpg`
-  - `assets/images/couple-5.jpg`
-  - `assets/images/couple-6.jpg`
-  - `assets/images/venue.jpg`
+- Drop them into `public/assets/images/`:
+  - `public/assets/images/couple-1.jpg`
+  - `public/assets/images/couple-2.jpg`
+  - `public/assets/images/couple-3.jpg`
+  - `public/assets/images/couple-4.jpg`
+  - `public/assets/images/couple-5.jpg`
+  - `public/assets/images/couple-6.jpg`
+  - `public/assets/images/venue.jpg`
 - Or update the file paths directly in `wedding-details.js` under `gallery` and `venue.image`.
 
 ### 3. Add Custom Music
-- Place any wedding instrumental MP3 file at `assets/audio/wedding-flute.mp3`.
+- Place any wedding instrumental MP3 file at `public/assets/audio/dhadak-song.mp3` (or update `music.audioSrc` in `wedding-details.js`).
 - If no file is provided, the website automatically synthesizes a tranquil flute raga.
 
 ---
