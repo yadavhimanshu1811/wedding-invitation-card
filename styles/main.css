@@ -519,11 +519,13 @@ body {
   top: 1.5rem;
   right: 1.5rem;
   z-index: 1002;
-  display: inline-flex;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
   align-items: center;
-  gap: 0.6rem;
-  padding: 0.6rem 1.15rem;
-  border-radius: 30px;
+  justify-content: center;
+  padding: 0;
   background: rgba(13, 18, 34, 0.85);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
@@ -531,24 +533,19 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5), 0 0 16px rgba(229, 193, 88, 0.2);
   cursor: pointer;
   color: var(--gold-light);
-  font-family: var(--font-sans);
-  font-size: 0.76rem;
-  font-weight: 500;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
   transition: var(--transition-smooth);
   user-select: none;
   -webkit-user-select: none;
 }
 
 .theme-toggle-cta:hover {
-  transform: translateY(-2px) scale(1.03);
+  transform: translateY(-2px) scale(1.08);
   border-color: var(--gold-warm);
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.65), 0 0 24px rgba(229, 193, 88, 0.4);
 }
 
 .theme-toggle-cta:active {
-  transform: translateY(0) scale(0.98);
+  transform: translateY(0) scale(0.95);
 }
 
 .theme-toggle-icon {
@@ -640,9 +637,8 @@ body.light-mode .music-status-tooltip {
   .theme-toggle-cta {
     top: 1rem;
     right: 1rem;
-    padding: 0.5rem 0.85rem;
-    font-size: 0.7rem;
-    gap: 0.45rem;
+    width: 38px;
+    height: 38px;
   }
 }
 
